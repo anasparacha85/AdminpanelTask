@@ -31,8 +31,6 @@ const Login = () => {
       .then((res) => {
         if (res.ok) {
           navigate("/home", { replace: true });
-          localStorage.setItem('isAdmin', res.data.isAdmin)
-          console.log(res.data.isAdmin);
           
         }
         return res.json();
@@ -44,7 +42,7 @@ const Login = () => {
         } else if (data.extradetails) {
           alert(data.extradetails);
         }
-        //localStorage.setItem('token',data.token)
+        localStorage.setItem('isAdmin',data[0].isAdmin)
         settoKentoLS(data.token);
       })
       .catch((error) => {
