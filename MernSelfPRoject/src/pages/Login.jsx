@@ -44,7 +44,7 @@ navigate('/home',{replace:true})
             alert(data.extradetails)
           }
           settoKentoLS(data.token)
-          localStorage.setItem('isAdmin',data[0].isAdmin)
+          localStorage.setItem('isAdmin',data.isAdmin)
         
 
     }).catch((error)=>{
