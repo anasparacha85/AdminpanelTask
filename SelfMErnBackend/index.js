@@ -8,8 +8,12 @@ const cors=require('cors')
 const errormiddleware=require('./Middleware/error-Middleware')
 const dbconnect=require('./utils/db')
 const bodyparser=require('body-parser')
+const configDotEnv = require('dotenv')
 server.use(cors())
 server.use(bodyparser.json())
+
+
+configDotEnv();
 
 server.use('/api/auth',router)
 server.use('/api/Services',servocerouter)
