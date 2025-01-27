@@ -15,7 +15,7 @@ const REEGISTER = () => {
     }
     const onsubmit=(e)=>{
         e.preventDefault();
-        fetch('http://localhost:5000/api/auth/register',{
+        fetch('http://23.22.178.222/api/auth/register',{
             method:'POST',
             body:JSON.stringify(register),
             headers:{

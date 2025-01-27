@@ -61,7 +61,7 @@ const handleKeyDown=(event,index)=>{
     console.log(ottp,typeof(ottp));
   
     
-    fetch('http://localhost:5000/api/auth/VerifyOTP',{
+    fetch('http://23.22.178.222/api/auth/VerifyOTP',{
       method:'POST',
       body:JSON.stringify({ otp: enteredOtp }),
       headers:{

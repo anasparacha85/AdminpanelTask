@@ -16,7 +16,7 @@ const ForgetPassword = () => {
     }
     const onsubmit=(e)=>{
         e.preventDefault()
-        fetch('http://localhost:5000/api/auth/forgetpassword',{
+        fetch('http://23.22.178.222/api/auth/forgetpassword',{
             method:'POST',
             body:JSON.stringify(forget),
             headers:{

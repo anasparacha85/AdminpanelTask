@@ -9,7 +9,7 @@ const UpdateUser = () => {
     const navigate=useNavigate()
     const [userdata, setuserdata] = useState({name:'',email:'',isAdmin:''})
     const getuserbyid=(id)=>{
-        fetch(`http://localhost:5000/api/admin/user/${params.id}`,{
+        fetch(`http://23.22.178.222/api/admin/user/${params.id}`,{
             method:'GET',
             headers:{
                 Authorization:jwttoken

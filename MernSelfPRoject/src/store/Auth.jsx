@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
 
   const userAuthentication = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/user', {
+      const response = await fetch('http://23.22.178.222/api/auth/user', {
         method: 'GET',
         headers: {
           Authorization:  token,
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const fetchshop = () => {
-    fetch('http://localhost:5000/api/Shop/shop', {
+    fetch('http://23.22.178.222/api/Shop/shop', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const fetchService = () => {
-    fetch('http://localhost:5000/api/Services/service', {
+    fetch('http://23.22.178.222/api/Services/service', {
       method: 'GET',
     })
       .then((res) => res.json())

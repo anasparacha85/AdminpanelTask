@@ -6,7 +6,7 @@ const Adminusers = () => {
     const [adminusers, setadminusers] = useState([])
     const {jwttoken}=useAuth()
     const fetchadminusers=()=>{
-        fetch('http://localhost:5000/api/admin/user',{
+        fetch('http://23.22.178.222/api/admin/user',{
             method:'GET',
             headers:{
                 Authorization:jwttoken

@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault()
     console.log(user);
     
-    fetch('http://localhost:5000/api/auth/',{
+    fetch('http://23.22.178.222/api/auth/',{
         method:'POST',
         body:JSON.stringify(user),
         headers:{

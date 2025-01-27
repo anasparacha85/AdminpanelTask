@@ -12,7 +12,7 @@ const UpdatePassword = () => {
         e.preventDefault();
       //  console.log(user);
         
-        fetch('http://localhost:5000/api/auth/updatepassword',{
+        fetch('http://23.22.178.222/api/auth/updatepassword',{
             method:'PATCH',
             body:JSON.stringify(user),
             headers:{

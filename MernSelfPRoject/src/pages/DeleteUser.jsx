@@ -9,7 +9,7 @@ const UpdateUser = () => {
     const params=useParams()
     const [userdata, setuserdata] = useState({name:'',email:'',isAdmin:''})
     const getuserbyid=(id)=>{
-        fetch(`http://localhost:5000/api/admin/user/${params.id}`,{
+        fetch(`http://23.22.178.222/api/admin/user/${params.id}`,{
             method:'GET',
             headers:{
                 Authorization:jwttoken
@@ -26,7 +26,7 @@ const UpdateUser = () => {
         })
     }
     const deleteuserbyID=(id)=>{
-         fetch(`http://localhost:5000/api/admin/user/delete/${params.id}`,{
+         fetch(`http://23.22.178.222/api/admin/user/delete/${params.id}`,{
    
    
            
