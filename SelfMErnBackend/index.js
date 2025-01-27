@@ -15,6 +15,10 @@ server.use(bodyparser.json());
 
 dotenv.config();
 
+server.get('/test', (req, res) => {
+    res.json({ message: 'Server is running' });
+});
+
 server.use('/api/auth', router);
 server.use('/api/Services', servocerouter);
 server.use('/api/admin', adminrouter);
