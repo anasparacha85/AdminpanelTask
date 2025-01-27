@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline"; // Requires Heroicons
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/Auth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-const {isLoggedIn}=useAuth()
+  const { isLoggedIn } = useAuth();
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -20,11 +21,29 @@ const {isLoggedIn}=useAuth()
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex space-x-8">
-            <NavLink to="/Home" className="text-white hover:text-indigo-300">Home     </NavLink>  
-            <NavLink to="/Posts" className="text-white hover:text-indigo-300">Posts    </NavLink  >
-            <NavLink to="/About" className="text-white hover:text-indigo-300">About    </NavLink  >
-            <NavLink to="/Products" className="text-white hover:text-indigo-300">Products </NavLink>
-            {isLoggedIn&&<NavLink to="/logout" className="text-white hover:text-indigo-300">Logout </NavLink>}
+            <NavLink to="/Home" className="text-white hover:text-indigo-300">
+              Home
+            </NavLink>
+            <NavLink to="/Posts" className="text-white hover:text-indigo-300">
+              Posts
+            </NavLink>
+            <NavLink to="/About" className="text-white hover:text-indigo-300">
+              About
+            </NavLink>
+            <NavLink to="/Products" className="text-white hover:text-indigo-300">
+              Products
+            </NavLink>
+            {/* Show Admin link only if user is admin */}
+            {isAdmin && (
+              <NavLink to="/admin" className="text-white hover:text-indigo-300">
+                Admin Dashboard
+              </NavLink>
+            )}
+            {isLoggedIn && (
+              <NavLink to="/logout" className="text-white hover:text-indigo-300">
+                Logout
+              </NavLink>
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -41,10 +60,29 @@ const {isLoggedIn}=useAuth()
       {isOpen && (
         <nav className="md:hidden bg-indigo-700">
           <div className="px-4 py-2 space-y-2">
-            <a href="#" className="block text-white hover:text-indigo-300">Home</a>
-            <a href="#" className="block text-white hover:text-indigo-300">Posts</a>
-            <a href="#" className="block text-white hover:text-indigo-300">About</a>
-            <a href="#" className="block text-white hover:text-indigo-300">Products</a>
+            <NavLink to="/Home" className="block text-white hover:text-indigo-300">
+              Home
+            </NavLink>
+            <NavLink to="/Posts" className="block text-white hover:text-indigo-300">
+              Posts
+            </NavLink>
+            <NavLink to="/About" className="block text-white hover:text-indigo-300">
+              About
+            </NavLink>
+            <NavLink to="/Products" className="block text-white hover:text-indigo-300">
+              Products
+            </NavLink>
+            {/* Show Admin link in mobile menu only if user is admin */}
+            {isAdmin && (
+              <NavLink to="/admin" className="block text-white hover:text-indigo-300">
+                Admin Dashboard
+              </NavLink>
+            )}
+            {isLoggedIn && (
+              <NavLink to="/logout" className="block text-white hover:text-indigo-300">
+                Logout
+              </NavLink>
+            )}
           </div>
         </nav>
       )}

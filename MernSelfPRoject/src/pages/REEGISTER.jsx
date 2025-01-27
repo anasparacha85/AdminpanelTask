@@ -45,7 +45,7 @@ settoKentoLS(data.token)
     }
   return (
    
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen overflow-y-hidden">
       {/* Left Side - Background Section */}
       <AuthLeftSide/>
 

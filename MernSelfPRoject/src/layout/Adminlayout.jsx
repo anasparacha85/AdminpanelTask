@@ -61,7 +61,7 @@ const Adminlayout = () => {
         <main className="p-5 overflow-y-auto">
           <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-10">
             {/* Metric Cards */}
-            <div className="p-6 bg-white shadow-lg rounded-lg">
+            {/* <div className="p-6 bg-white shadow-lg rounded-lg">
               <h3 className="text-xl font-semibold mb-2">Total Sales</h3>
               <p className="text-3xl font-bold">$1,200</p>
               <FaDollarSign className="text-blue-500 mt-4 text-4xl" />
@@ -80,7 +80,7 @@ const Adminlayout = () => {
               <h3 className="text-xl font-semibold mb-2">Revenue</h3>
               <p className="text-3xl font-bold">$5,000</p>
               <FaDollarSign className="text-yellow-500 mt-4 text-4xl" />
-            </div>
+            </div> */}
           </section>
 <Outlet/>
           {/* Orders Section */}

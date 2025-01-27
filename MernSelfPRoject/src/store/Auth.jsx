@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
   const LogoutTrue = () => {
     settoken(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('isAdmin')
   }
 
   const userAuthentication = async () => {
