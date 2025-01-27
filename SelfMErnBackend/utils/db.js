@@ -1,17 +1,19 @@
-const mongoose =require('mongoose')
-// MONGODB_URI=mongodb+srv://amiranas761:eKmGsqBdGifD21JR@cluster0.edrnn.mongodb.net/AnotherMernProjectData?retryWrites=true&w=majority&appName=Cluster0
-// const URI=process.env.MONGODB_URI
-// const URI='mongodb+srv://amiranas761:eKmGsqBdGifD21JR@cluster0.edrnn.mongodb.net/AnotherMernProjectData?retryWrites=true&w=majority&appName=Cluster0';
-const connectdb=async()=>{
+const mongoose = require('mongoose');
+require('dotenv').config();  // Ensure the .env file is loaded
+
+const connectdb = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI)
-        console.log('database connected successfully');
+        const URI = process.env.MONGODB_URI; // Get MongoDB URI from environment variables
+        if (!URI) {
+            throw new Error("MongoDB URI is not defined");
+        }
         
+        await mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log('Database connected successfully');
     } catch (error) {
-        console.error('Database connection failed',error);
-        process.exit(0)
-        
-        
+        console.error('Database connection failed:', error.message);
+        process.exit(1);  // Exit the process with failure code
     }
-}
-module.exports=connectdb
+};
+
+module.exports = connectdb;
