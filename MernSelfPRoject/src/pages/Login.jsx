@@ -35,20 +35,24 @@ navigate('/home',{replace:true})
       }
         return res.json()
 
-    }).then((data)=>{
-        console.log(data);
-        if(data.msg){
-          alert(data.msg)
-          }
-          else if(data.extradetails){
-            alert(data.extradetails)
-          }
-        //localStorage.setItem('token',data.token)
-        settoKentoLS(data.token)
-        localStorage.setItem('isAdmin',data.isAdmin)
-        
-
-    }).catch((error)=>{
+    }).then((data) => {
+      console.log('Response Data:', data); // Log the whole response object
+      if (data.msg) {
+        alert(data.msg);
+      } else if (data.extradetails) {
+        alert(data.extradetails);
+      }
+    
+      if (data.data && data.data.isAdmin !== undefined) {
+        console.log('isAdmin:', data.data.isAdmin); 
+        localStorage.setItem('isAdmin', data.data.isAdmin);
+      } else {
+        console.error('isAdmin is not found in the response.');
+      }
+    
+      settoKentoLS(data.token);
+    })
+    .catch((error)=>{
         console.log('error fetching login data');
         
     })
