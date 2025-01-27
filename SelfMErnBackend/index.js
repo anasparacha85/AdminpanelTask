@@ -15,7 +15,7 @@ server.use(bodyparser.json());
 
 dotenv.config();
 
-server.get('/test', (req, res) => {
+server.get('/api/test', (req, res) => {
     res.json({ message: 'Server is running' });
 });
 
