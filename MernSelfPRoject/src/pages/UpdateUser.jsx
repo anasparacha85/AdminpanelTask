@@ -26,7 +26,7 @@ const UpdateUser = () => {
         })
     }
     const updateuserbyId=(id)=>{
-        fetch(`http://localhost:5000/api/admin/user/update/${params.id}`,{
+        fetch(`http://23.22.178.222/api/admin/user/update/${params.id}`,{
             method:'PATCH',
             body:JSON.stringify(userdata),
             headers:{
